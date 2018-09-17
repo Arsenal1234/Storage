@@ -1,0 +1,96 @@
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\UserLogin.exe.config
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\UserLogin.exe
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\UserLogin.pdb
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\obj\Debug\UserManage.csprojResolveAssemblyReference.cache
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\obj\Debug\UserLogin.UserLogin.resources
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\obj\Debug\UserLogin.Properties.Resources.resources
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\obj\Debug\UserManage.csproj.GenerateResource.cache
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\obj\Debug\UserManage.csproj.CoreCompileInputs.cache
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\obj\Debug\UserLogin.exe
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\obj\Debug\UserLogin.pdb
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\obj\Debug\UserManage.csproj.CopyComplete
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\obj\Debug\UserLogin.UserCenter.resources
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\obj\Debug\UserLogin.Forms.UserRegister.resources
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\UHFReader18CSharp.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\MaterialCenter.exe
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\MaterialCenter.pdb
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\MaterialCenter.exe.config
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\AicUI.Desktop.Framework.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.Navigation.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.Docking.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.Input.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Opc.Ua.Core.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Opc.Ua.Client.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Data.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.GridView.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\log4net.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Microsoft.Data.Services.Client.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.DataServices50.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\ExcelReader.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\EPPlus.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\System.Spatial.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.Navigation.xml
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.Docking.xml
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.xml
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.Input.xml
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Data.xml
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.GridView.xml
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.DataServices50.xml
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\zh-Hans\AicUI.Desktop.Framework.resources.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\李陶\Documents\Visual Studio 2017\Projects\IntelligentStorage\UserLogin\bin\Debug\zh-Hans\System.Spatial.resources.dll
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.EditEPCInfo.resources
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.MaterialManagement.resources
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.StorageMaterials.resources
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.TakeMatelrials.resources
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.UserCenter.resources
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.UserLogin.resources
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.Forms.UserRegister.resources
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.Properties.Resources.resources
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserManage.csproj.GenerateResource.cache
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserManage.csproj.CoreCompileInputs.cache
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.exe
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.pdb
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\UserLogin.exe.config
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\UserLogin.exe
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\UserLogin.pdb
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.Navigation.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.Docking.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.Input.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Opc.Ua.Core.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Opc.Ua.Client.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Data.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.GridView.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\log4net.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Microsoft.Data.Services.Client.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.DataServices50.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\ExcelReader.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\EPPlus.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Microsoft.Data.Edm.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Microsoft.Data.OData.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\System.Spatial.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.Navigation.xml
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.Docking.xml
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.xml
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.Input.xml
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Data.xml
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.GridView.xml
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Telerik.Windows.Controls.DataServices50.xml
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\zh-Hans\AicUI.Desktop.Framework.resources.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\zh-Hans\System.Spatial.resources.dll
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserManage.csproj.CopyComplete
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.Forms.PutInMaterials.resources
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\EntityFramework.dll
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\EntityFramework.xml
+D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserManage.csprojAssemblyReference.cache
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.Forms.QueryRecords.resources

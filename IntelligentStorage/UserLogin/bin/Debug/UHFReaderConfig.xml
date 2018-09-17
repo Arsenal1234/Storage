@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfUHFReaderConfiguration>
+  <UHFReaderConfiguration>
+    <COM>COM4</COM>
+    <BaudRate>57600</BaudRate>
+    <Address>1</Address>
+    <Type>UHFReader18</Type>
+    <Version>03.63</Version>
+    <Power>30</Power>
+    <LowestFrequency>902.6</LowestFrequency>
+    <HighestFrequency>927.4</HighestFrequency>
+    <MaximumResponseTime>1000</MaximumResponseTime>
+    <InquiryTagInterval>50</InquiryTagInterval>
+    <Wiegand>韦根26</Wiegand>
+    <DataOutputInterval>300</DataOutputInterval>
+    <PulseInterval>1500</PulseInterval>
+    <PulseWidth>100</PulseWidth>   
+    <WiegandOutputMode>韦根输出高字节在前</WiegandOutputMode>
+</UHFReaderConfiguration>
+</ArrayOfUHFReaderConfiguration>

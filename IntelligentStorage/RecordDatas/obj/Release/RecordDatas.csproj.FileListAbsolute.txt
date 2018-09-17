@@ -1,0 +1,10 @@
+D:\项目资料\IntelligentStorage\RecordDatas\bin\RecordDatas.dll.config
+D:\项目资料\IntelligentStorage\RecordDatas\bin\RecordDatas.dll
+D:\项目资料\IntelligentStorage\RecordDatas\bin\RecordDatas.pdb
+D:\项目资料\IntelligentStorage\RecordDatas\bin\Newtonsoft.Json.dll
+D:\项目资料\IntelligentStorage\RecordDatas\bin\Newtonsoft.Json.xml
+D:\项目资料\IntelligentStorage\RecordDatas\obj\Release\RecordDatas.csprojAssemblyReference.cache
+D:\项目资料\IntelligentStorage\RecordDatas\obj\Release\RecordDatas.csproj.CoreCompileInputs.cache
+D:\项目资料\IntelligentStorage\RecordDatas\obj\Release\RecordDatas.csproj.CopyComplete
+D:\项目资料\IntelligentStorage\RecordDatas\obj\Release\RecordDatas.dll
+D:\项目资料\IntelligentStorage\RecordDatas\obj\Release\RecordDatas.pdb

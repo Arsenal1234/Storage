@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{14D0D7B0-0F43-41FC-89A5-289AFB84D2D5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UserLogin</RootNamespace>
+    <AssemblyName>UserLogin</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>bitbug_favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AicUI.Desktop.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1a9220a738a1ef17, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\李陶\Documents\SiemensITS1208\SiemensITS\SiemensTraffic\bin\Debug\AicUI.Desktop.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI, Version=3.4.1.2976, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World, Version=3.4.1.2976, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UHFReader18CSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\方卡UHF一体机读卡器开发接品VB  VC  JAVA\以UHFReader18命名的中性的中文资料\SDK\C#\UHFReader18CSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\EditEPCInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditEPCInfo.Designer.cs">
+      <DependentUpon>EditEPCInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MaterialManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MaterialManagement.Designer.cs">
+      <DependentUpon>MaterialManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PutInMaterials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PutInMaterials.Designer.cs">
+      <DependentUpon>PutInMaterials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QueryRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QueryRecords.Designer.cs">
+      <DependentUpon>QueryRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StorageMaterials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StorageMaterials.Designer.cs">
+      <DependentUpon>StorageMaterials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TakeMatelrials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TakeMatelrials.Designer.cs">
+      <DependentUpon>TakeMatelrials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserCenter.Designer.cs">
+      <DependentUpon>UserCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserLog.Designer.cs">
+      <DependentUpon>UserLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserRegister.Designer.cs">
+      <DependentUpon>UserRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialInfo.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Records.cs" />
+    <Compile Include="Sqloperate.cs" />
+    <Compile Include="UHFReader18CSharp.cs" />
+    <Compile Include="UHFReaderConfiguration.cs" />
+    <Compile Include="UseKey.cs" />
+    <Compile Include="UserManager.cs" />
+    <EmbeddedResource Include="Forms\EditEPCInfo.resx">
+      <DependentUpon>EditEPCInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MaterialManagement.resx">
+      <DependentUpon>MaterialManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PutInMaterials.resx">
+      <DependentUpon>PutInMaterials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QueryRecords.resx">
+      <DependentUpon>QueryRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StorageMaterials.resx">
+      <DependentUpon>StorageMaterials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TakeMatelrials.resx">
+      <DependentUpon>TakeMatelrials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserCenter.resx">
+      <DependentUpon>UserCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserLog.resx">
+      <DependentUpon>UserLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserRegister.resx">
+      <DependentUpon>UserRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\UserLogin.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\UserLogin.UserLogin.resources" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="bin\Debug\UserLogin.exe.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\UserLogin.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\UserLogin.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\UserLogin.csprojResolveAssemblyReference.cache" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\osk.exe" />
+    <Content Include="bin\Debug\pictrue\0f13b01b4fe74bde5565eb5d93f508e3.jpg" />
+    <Content Include="bin\Debug\pictrue\825cc1f449aaa28f862486dd4fe8b67e.gif" />
+    <Content Include="bin\Debug\pictrue\96d8373913edc86118257d12cc20de0f.jpg" />
+    <Content Include="bin\Debug\pictrue\ebb506cf0bdb04e738a6758b0b036875.jpg" />
+    <Content Include="bin\Debug\UserLogin.exe" />
+    <Content Include="bin\Debug\UserLogin.pdb" />
+    <Content Include="bitbug_favicon.ico" />
+    <Content Include="obj\Debug\UserLogin.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\UserLogin.exe" />
+    <Content Include="obj\Debug\UserLogin.pdb" />
+    <None Include="Resources\0f13b01b4fe74bde5565eb5d93f508e3.jpg" />
+    <None Include="Resources\96d8373913edc86118257d12cc20de0f.jpg" />
+    <Content Include="UHFReaderConfig.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
