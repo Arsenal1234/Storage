@@ -92,6 +92,7 @@ namespace UserLogin.Forms
                                 re.物品名称 = r["MaterialName"].ToString();
                                 re.物品数量 = Convert.ToInt32(r["MaterialCounts"]);
                                 re.时间 = r["Time"].ToString();
+                                re.标签号 = r["MaterialRfid"].ToString();
                                 records.Add(re);
                             }
                             dataRecords.DataSource = records;

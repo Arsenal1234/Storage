@@ -20,7 +20,8 @@ namespace UserLogin
         public int m_materialCounts;
         //时间
         public string m_datetime;
-
+        //取走物品的标签
+        public string m_materialRfid;
 
         public int 查询ID
         {
@@ -57,5 +58,12 @@ namespace UserLogin
             get { return m_datetime; }
             set { m_datetime = value; }
         }
+
+        public string 标签号
+        {
+            get { return m_materialRfid; }
+            set { m_materialRfid = value; }
+        }
+
     }
 }

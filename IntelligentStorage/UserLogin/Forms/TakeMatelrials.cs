@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using UserLogin;
+using System.Collections;
+using Newtonsoft.Json;
+using System.Web.Script.Serialization;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json.Linq;
 
 namespace UserLogin
 {
@@ -22,7 +27,9 @@ namespace UserLogin
         private int frmcomportindex = 4;
         private byte fComAdr = 0xff;//当前操作的地址
 
+        Dictionary<string, string> dict = new Dictionary<string, string>();
 
+        List<string> list = new List<string>();
         public TakeMatelrials()
         {
             takeMatelrials = this;
@@ -132,14 +139,16 @@ namespace UserLogin
         /// <param name="e"></param>
         private void buttonGetMaterials_Click(object sender, EventArgs e)
         {         
-            //timerScanRFID.Tick += TimerScanRFID_Tick;
-            UpDateDataGrid();
+            //UpDateDataGrid();
+            dict = AddTakeMaterial(textCounts.Text);
+            list = GetMaterialName(dict);
+            timerScanRFID.Enabled = true;
         }
 
         /// <summary>
         /// 扫描标签
         /// </summary>
-        public string Inquiry()
+        public void Inquiry()
         {
             int CardNum = 0;
             int Totallen = 0;
@@ -168,8 +177,29 @@ namespace UserLogin
                 Array.Copy(EPC, daw, Totallen);
                 temps = ByteArrayToHexString(daw);
                 fInventory_EPC_List = temps;//存储标签记录
+                string[] newArray = SplitArry(fInventory_EPC_List);
+                for (int i = 0; i < newArray.Length; i++)
+                {
+                    textRfidNum.Items.Add(newArray[i]);
+                }
             }
-            return fInventory_EPC_List;
+            //return fInventory_EPC_List;
+        }
+
+        /// <summary>
+        /// 分割标签号
+        /// </summary>
+        /// <returns></returns>
+        public string[] SplitArry(string textrfid)
+        {
+            string[] a1 = new string[textrfid.Length / 6];
+            for (int i = 0; i < textrfid.Length / 6; i++)
+            {
+                a1[i] = textrfid.Substring(i * 6, 6);
+            }
+            string a2 = string.Join(" ", a1);
+            string[] a3 = a2.Split(' ');
+            return a3;
         }
 
         /// <summary>
@@ -196,9 +226,14 @@ namespace UserLogin
                 conn1.Open();
                 using(SqlCommand cmd1 = conn1.CreateCommand())
                 {
-                    int takeCounts = Convert.ToInt32(textCounts.Text);
-                    cmd1.CommandText = "insert into tb_InquiryRecords(UserName,UserBehaviour,MaterialName,MaterialCounts,Time) values('" + curUserName + "','" + userAction + "','" + textTakeName.Text + "','" + takeCounts + "','" + DateTime.Now.ToString() + "')";
-                    cmd1.ExecuteNonQuery();
+                    //for (int i = 0; i < list.Count; i++)
+                    //{
+                        foreach (var item in dict)
+                        {
+                            cmd1.CommandText = "insert into tb_InquiryRecords(UserName,UserBehaviour,MaterialName,MaterialCounts,Time) values('" + curUserName + "','" + userAction + "','" + item.Key + "','" + item.Value + "','" + DateTime.Now.ToString() + "')";
+                            cmd1.ExecuteNonQuery();
+                        }
+                    //}
                 }
             }
 
@@ -207,12 +242,14 @@ namespace UserLogin
                 conn.Open();
                 using(SqlCommand cmd = conn.CreateCommand())
                 {
-                    string targetRfid = Inquiry();
-                    string targetName = textTakeName.Text;
-                    int counts = Convert.ToInt32(textCounts.Text);
-                    cmd.CommandText = "update tb_material set materialQuantity=materialQuantity-'" + counts + "' where materialRfid='" + targetRfid + "'";
-                    cmd.ExecuteNonQuery();
-                    SqlCommand sqlCommand = new SqlCommand("select * from tb_material where materialName='" + targetName + "'",conn);
+                    foreach (var item in dict)
+                    {
+                        cmd.CommandText = "update tb_material set materialQuantity=materialQuantity-'" + item.Value + "' where materialRfid='" + item.Key + "'";
+                        cmd.ExecuteNonQuery();
+                    }
+                    //cmd.CommandText = "update tb_material set materialQuantity=materialQuantity-'" + counts + "' where materialRfid='" + targetRfid + "'";
+                    //cmd.ExecuteNonQuery();
+                    SqlCommand sqlCommand = new SqlCommand("select * from tb_material",conn);
                     using (SqlDataReader r = sqlCommand.ExecuteReader())
                     {
                         while (r.Read())
@@ -227,22 +264,24 @@ namespace UserLogin
                         }
                         dataGridView_Materlial.DataSource = materialInfoList;
                         r.Close();
-
                     }
                 }
             }
-        }
 
-        public bool IfIsEmpty(string str1,string str2)
-        {
-            if (str1 != "" && str2 != "")
+            using(SqlConnection conn=new SqlConnection(conStr))
             {
-                timerScanRFID.Enabled = true;
+                conn.Open();
+                using(SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "delete from tb_takeMaterials";
+                    cmd.ExecuteNonQuery();
+                }
             }
-            return timerScanRFID.Enabled;
+            dict.Clear();
 
         }
 
+    
 
 
         /// <summary>
@@ -252,22 +291,107 @@ namespace UserLogin
         /// <param name="e"></param>
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            //UpDateDataGrid();
-        }
-
-        private void TakeMatelrials_Load(object sender, EventArgs e)
-        {
-            //timerScanRFID.Enabled = true;
+            UpDateDataGrid();
         }
 
         private void timerScanRFID_Tick_1(object sender, EventArgs e)
         {
-             UpDateDataGrid();         
+            UpDateDataGrid();
         }
 
         private void textCounts_TextChanged(object sender, EventArgs e)
         {
-            timerScanRFID.Enabled = true;
+            //timerScanRFID.Enabled = true;
+        }
+
+        /// <summary>
+        /// 选择要取出的物品
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //private void btn_Add_Click(object sender, EventArgs e)
+        //{           
+
+        //    dict=AddTakeMaterial(textCounts.Text);
+        //    list= GetMaterialName(dict);
+        //    timerScanRFID.Enabled = true;
+        //}
+
+        /// <summary>
+        /// 将要取出的物品标签号和数量添加到字典中
+        /// </summary>
+        /// <param name="str2"></param>
+        /// <returns></returns>
+        public Dictionary<string,string>AddTakeMaterial(string str2)
+        {
+            SqlConnection conn = new SqlConnection(conStr);
+            conn.Open();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            SqlCommand cmd = new SqlCommand("insert into tb_takeMaterials(takeMaterialRfid,takeMaterialCounts) values('" + textRfidNum.Text + "','" + Convert.ToInt32(str2) + "')", conn);
+            cmd.ExecuteNonQuery();
+            SqlCommand cmd1 = new SqlCommand("select * from tb_takeMaterials",conn);
+            sda.SelectCommand = cmd1;
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                dict[ds.Tables[0].Rows[i]["takeMaterialRfid"].ToString()] = ds.Tables[0].Rows[i]["takeMaterialCounts"].ToString();
+            }
+            conn.Dispose();
+            MessageBox.Show("物品添加成功");
+            return dict;
+     
+        }
+
+        /// <summary>
+        /// 通过标签号获得物品名称
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public List<string> GetMaterialName(Dictionary<string,string>dic)
+        {         
+                List<string> strList = new List<string>();
+                SqlConnection conn = new SqlConnection(conStr);
+                conn.Open();
+                foreach (var item in dic.Keys)
+                {                  
+                    SqlDataAdapter sda = new SqlDataAdapter();
+                    SqlCommand command = new SqlCommand("select materialName from tb_material where materialRfid='" +item+"'", conn);
+                    sda.SelectCommand = command;
+                    DataSet ds = new DataSet();
+                    sda.Fill(ds);
+                    string str = ds.Tables[0].Rows[0]["materialName"].ToString();
+                    strList.Add(str);
+                }
+                return strList;
+        }
+
+
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Inquiry();
+        }
+
+    }
+
+    public static class DictionaryExtensions
+    {
+        public static void Add<TKey, TValue>(this IDictionary<TKey, TValue> target, IDictionary<TKey, TValue> source)
+        {
+            if (source == null) throw new ArgumentNullException("source");
+            if (target == null) throw new ArgumentNullException("target");
+            foreach (var keyValuePair in source)
+            {
+                target.Add(keyValuePair.Key, keyValuePair.Value);
+            }
         }
     }
+
+
+
+
+
 }
