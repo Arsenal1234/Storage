@@ -96,3 +96,4 @@ D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserManage.csprojAssembly
 D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.Forms.QueryRecords.resources
 D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Newtonsoft.Json.dll
 D:\项目资料\IntelligentStorage\UserLogin\bin\Debug\Newtonsoft.Json.xml
+D:\项目资料\IntelligentStorage\UserLogin\obj\Debug\UserLogin.Forms.UserInfoRfid.resources

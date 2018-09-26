@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textTakeName = new System.Windows.Forms.TextBox();
             this.dataGridView_Materlial = new System.Windows.Forms.DataGridView();
-            this.button_Take = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelTime = new System.Windows.Forms.ToolStripStatusLabel();
@@ -44,6 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textRfidNum = new System.Windows.Forms.ComboBox();
             this.btnTakeScan = new System.Windows.Forms.Button();
+            this.btn_AddMaterials = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Materlial)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -80,19 +80,6 @@
             this.dataGridView_Materlial.RowTemplate.Height = 23;
             this.dataGridView_Materlial.Size = new System.Drawing.Size(541, 436);
             this.dataGridView_Materlial.TabIndex = 41;
-            // 
-            // button_Take
-            // 
-            this.button_Take.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_Take.BackColor = System.Drawing.Color.White;
-            this.button_Take.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_Take.Location = new System.Drawing.Point(624, 235);
-            this.button_Take.Name = "button_Take";
-            this.button_Take.Size = new System.Drawing.Size(82, 34);
-            this.button_Take.TabIndex = 42;
-            this.button_Take.Text = "查找";
-            this.button_Take.UseVisualStyleBackColor = false;
-            this.button_Take.Click += new System.EventHandler(this.button_Take_Click);
             // 
             // statusStrip1
             // 
@@ -140,7 +127,7 @@
             // 
             // timerScanRFID
             // 
-            this.timerScanRFID.Interval = 1000;
+            this.timerScanRFID.Interval = 500;
             this.timerScanRFID.Tick += new System.EventHandler(this.timerScanRFID_Tick_1);
             // 
             // labelCounts
@@ -163,7 +150,6 @@
             this.textCounts.Name = "textCounts";
             this.textCounts.Size = new System.Drawing.Size(183, 31);
             this.textCounts.TabIndex = 49;
-            this.textCounts.TextChanged += new System.EventHandler(this.textCounts_TextChanged);
             // 
             // label2
             // 
@@ -185,13 +171,14 @@
             this.textRfidNum.Name = "textRfidNum";
             this.textRfidNum.Size = new System.Drawing.Size(183, 28);
             this.textRfidNum.TabIndex = 53;
+            this.textRfidNum.SelectedIndexChanged += new System.EventHandler(this.textRfidNum_SelectedIndexChanged);
             // 
             // btnTakeScan
             // 
             this.btnTakeScan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTakeScan.BackColor = System.Drawing.SystemColors.Window;
             this.btnTakeScan.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnTakeScan.Location = new System.Drawing.Point(719, 235);
+            this.btnTakeScan.Location = new System.Drawing.Point(623, 235);
             this.btnTakeScan.Name = "btnTakeScan";
             this.btnTakeScan.Size = new System.Drawing.Size(93, 34);
             this.btnTakeScan.TabIndex = 54;
@@ -199,12 +186,26 @@
             this.btnTakeScan.UseVisualStyleBackColor = false;
             this.btnTakeScan.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btn_AddMaterials
+            // 
+            this.btn_AddMaterials.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_AddMaterials.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_AddMaterials.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_AddMaterials.Location = new System.Drawing.Point(730, 235);
+            this.btn_AddMaterials.Name = "btn_AddMaterials";
+            this.btn_AddMaterials.Size = new System.Drawing.Size(82, 34);
+            this.btn_AddMaterials.TabIndex = 55;
+            this.btn_AddMaterials.Text = "添加";
+            this.btn_AddMaterials.UseVisualStyleBackColor = false;
+            this.btn_AddMaterials.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // TakeMatelrials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1027, 462);
+            this.Controls.Add(this.btn_AddMaterials);
             this.Controls.Add(this.btnTakeScan);
             this.Controls.Add(this.textRfidNum);
             this.Controls.Add(this.label2);
@@ -212,7 +213,6 @@
             this.Controls.Add(this.labelCounts);
             this.Controls.Add(this.buttonGetMaterials);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.button_Take);
             this.Controls.Add(this.dataGridView_Materlial);
             this.Controls.Add(this.textTakeName);
             this.Controls.Add(this.label1);
@@ -232,7 +232,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textTakeName;
         private System.Windows.Forms.DataGridView dataGridView_Materlial;
-        private System.Windows.Forms.Button button_Take;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelTime;
@@ -244,5 +243,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox textRfidNum;
         private System.Windows.Forms.Button btnTakeScan;
+        private System.Windows.Forms.Button btn_AddMaterials;
     }
 }

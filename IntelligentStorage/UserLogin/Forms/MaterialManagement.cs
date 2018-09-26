@@ -44,9 +44,6 @@ namespace UserLogin
         private void MaterialManagement_Load(object sender, EventArgs e)
         {
             OpenPort();
-            //WriteReaderAddress();
-            //SetWorkModelParamter();
-            //SetWorkModus();
 
             Thread thread1 = new Thread(WriteReaderAddress);
             thread1.IsBackground = true;
@@ -417,6 +414,12 @@ namespace UserLogin
         {
             EditEPCInfo editEPCInfo = new EditEPCInfo();
             EditEPCInfo.editEPCInfo.Show();
+        }
+
+        private void 用户标签ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserInfoRfid userInfoRfid = new UserInfoRfid();
+            UserInfoRfid.InfoRfid.Show();
         }
     }
 }

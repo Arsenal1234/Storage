@@ -111,9 +111,9 @@
             this.buttonConfirm.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonConfirm.BackColor = System.Drawing.Color.White;
             this.buttonConfirm.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonConfirm.Location = new System.Drawing.Point(167, 332);
+            this.buttonConfirm.Location = new System.Drawing.Point(179, 333);
             this.buttonConfirm.Name = "buttonConfirm";
-            this.buttonConfirm.Size = new System.Drawing.Size(75, 33);
+            this.buttonConfirm.Size = new System.Drawing.Size(63, 30);
             this.buttonConfirm.TabIndex = 6;
             this.buttonConfirm.Text = "确认";
             this.buttonConfirm.UseVisualStyleBackColor = false;
@@ -145,7 +145,7 @@
             this.btn_ScanRfid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_ScanRfid.BackColor = System.Drawing.SystemColors.Window;
             this.btn_ScanRfid.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_ScanRfid.Location = new System.Drawing.Point(271, 81);
+            this.btn_ScanRfid.Location = new System.Drawing.Point(69, 333);
             this.btn_ScanRfid.Name = "btn_ScanRfid";
             this.btn_ScanRfid.Size = new System.Drawing.Size(78, 30);
             this.btn_ScanRfid.TabIndex = 43;

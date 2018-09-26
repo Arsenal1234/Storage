@@ -61,8 +61,6 @@ namespace UserLogin.Forms
                 fInventory_EPC_List = temps;//存储标签记录
                 textBoxRfid.Text = fInventory_EPC_List;
             }
-           
-
         }
 
         /// <summary>
@@ -115,7 +113,7 @@ namespace UserLogin.Forms
                 using(SqlCommand cmd1 = conn1.CreateCommand())
                 {
                     int returnCounts = Convert.ToInt32(textBoxCounts.Text);
-                    cmd1.CommandText = "insert into tb_InquiryRecords(UserName,UserBehaviour,MaterialName,MaterialCounts,Time) values('" + curUserName + "','" + userAction + "','" + textBoxMaterialName.Text + "','" + returnCounts + "','" + DateTime.Now.ToString() + "')";
+                    cmd1.CommandText = "insert into tb_InquiryRecords(UserName,UserBehaviour,MaterialName,MaterialCounts,Time,MaterialRfid) values('" + curUserName + "','" + userAction + "','" + textBoxMaterialName.Text + "','" + returnCounts + "','" + DateTime.Now.ToString() + "','"+textBoxRfid.Text+"')";
                     cmd1.ExecuteNonQuery();
                 }
             }

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UserLogin;
+using System.Data.SqlClient;
 
 namespace UserLogin
 {
@@ -21,6 +21,7 @@ namespace UserLogin
         private byte[] fPassWord = new byte[4];
         private byte fComAdr = 0xff;//当前操作的地址
         public string fInventory_EPC_List; //存贮询查列表（如果读取的数据没有变化，则不进行刷新）
+        string conStr = "Data Source='101.200.210.193'; Initial Catalog=db_WMS;User ID=sa;Password=1010";
 
         public EditEPCInfo()
         {
@@ -69,15 +70,36 @@ namespace UserLogin
                 fCmdRet = UHFReader18CSharp.WriteEPC_G2(ref fComAdr, fPassWord, EPC, WriteEPCLen, ref ferrorcode, frmcomportindex);
                 if (fCmdRet == 0)
                 {
-                    //int a = StorageMaterials.storageMaterials.text_Rfid.SelectedIndex;
-                    //StorageMaterials.storageMaterials.text_Rfid.Items.RemoveAt(a);
-                    //StorageMaterials.storageMaterials.text_Rfid.SelectedText = "";
-                    //StorageMaterials.storageMaterials.text_Rfid.SelectedText = writeEPCNum;
                     this.curRfidText.Text = writeEPCNum;
-                    MessageBox.Show("写入成功!");
-                    this.Close();
-                }
-               
+                    string realRfid = "02" + curRfidText.Text;
+                    using(SqlConnection conn=new SqlConnection(conStr))
+                    {
+                        conn.Open();
+                        using(SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.CommandText = "select materialRfid from tb_material";
+                            using (SqlDataReader r = cmd.ExecuteReader())
+                            {
+                                while (r.Read())
+                                {
+                                    if (realRfid == r["materialRfid"].ToString())
+                                    {
+                                        MessageBox.Show("标签号已被注册!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("写入成功!");
+                                        this.Close();
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    //MessageBox.Show("写入成功!");
+                    //this.Close();
+                }         
             }
             catch 
             {               
@@ -134,9 +156,5 @@ namespace UserLogin
                 sb.Append(Convert.ToString(b, 16).PadLeft(2, '0'));
             return sb.ToString().ToUpper();
         }
-
-
-
-
     }
 }

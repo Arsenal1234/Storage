@@ -146,6 +146,12 @@
     <Compile Include="Forms\UserCenter.Designer.cs">
       <DependentUpon>UserCenter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserInfoRfid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserInfoRfid.Designer.cs">
+      <DependentUpon>UserInfoRfid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserLog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserCenter.resx">
       <DependentUpon>UserCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserInfoRfid.resx">
+      <DependentUpon>UserInfoRfid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserLog.resx">
       <DependentUpon>UserLog.cs</DependentUpon>

@@ -27,9 +27,14 @@ namespace UserLogin
         private int frmcomportindex = 4;
         private byte fComAdr = 0xff;//当前操作的地址
 
+        //存放要取出的物品标签号和取出数量
         Dictionary<string, string> dict = new Dictionary<string, string>();
+        //存放要取出物品的标签号和物品名称
+        Dictionary<string, string> dict1 = new Dictionary<string, string>();
 
         List<string> list = new List<string>();
+        public string curUserNameByRfid;
+
         public TakeMatelrials()
         {
             takeMatelrials = this;
@@ -138,11 +143,9 @@ namespace UserLogin
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void buttonGetMaterials_Click(object sender, EventArgs e)
-        {         
-            //UpDateDataGrid();
-            dict = AddTakeMaterial(textCounts.Text);
-            list = GetMaterialName(dict);
-            timerScanRFID.Enabled = true;
+        {
+            UpDateDataGrid();
+            //timerScanRFID.Enabled = true;
         }
 
         /// <summary>
@@ -186,6 +189,42 @@ namespace UserLogin
             //return fInventory_EPC_List;
         }
 
+        public string GetUserInfoByRfid()
+        {
+            string userRfid;
+            int CardNum = 0;
+            int Totallen = 0;
+            byte[] EPC = new byte[5000];
+            string temps;
+            byte AdrTID = 0;
+            byte LenTID = 0;
+            byte TIDFlag = 0;
+            bool TIDInquiry = false;
+            if (TIDInquiry == true)
+            {
+                AdrTID = Convert.ToByte("0", 16);
+                LenTID = Convert.ToByte("3", 16);
+                TIDFlag = 1;
+            }
+            else
+            {
+                AdrTID = 0;
+                LenTID = 0;
+                TIDFlag = 0;
+            }
+            fCmdRet = UHFReader18CSharp.Inventory_G2(ref fComAdr, AdrTID, LenTID, TIDFlag, EPC, ref Totallen, ref CardNum, frmcomportindex);
+            if (fCmdRet == 1 | (fCmdRet == 2) | (fCmdRet == 3) | (fCmdRet == 4) | (fCmdRet == 0xFB))//代表查找结束
+            {
+                byte[] daw = new byte[Totallen];
+                Array.Copy(EPC, daw, Totallen);
+                temps = ByteArrayToHexString(daw);
+                fInventory_EPC_List = temps;//存储标签记录
+            }
+            userRfid = fInventory_EPC_List;
+            return userRfid;
+        }
+
+
         /// <summary>
         /// 分割标签号
         /// </summary>
@@ -218,6 +257,7 @@ namespace UserLogin
 
         private void UpDateDataGrid()
         {
+            InsertDataToTable();
             List<MaterialInfo> materialInfoList = new List<MaterialInfo>();
             string curUserName = UserLogin.username;
             string userAction = "取出";
@@ -226,14 +266,11 @@ namespace UserLogin
                 conn1.Open();
                 using(SqlCommand cmd1 = conn1.CreateCommand())
                 {
-                    //for (int i = 0; i < list.Count; i++)
-                    //{
-                        foreach (var item in dict)
-                        {
-                            cmd1.CommandText = "insert into tb_InquiryRecords(UserName,UserBehaviour,MaterialName,MaterialCounts,Time) values('" + curUserName + "','" + userAction + "','" + item.Key + "','" + item.Value + "','" + DateTime.Now.ToString() + "')";
-                            cmd1.ExecuteNonQuery();
-                        }
-                    //}
+                    foreach (var item in dict)
+                    {
+                        cmd1.CommandText = "insert into tb_InquiryRecords(UserName,UserBehaviour,MaterialRfid,MaterialCounts,Time,MaterialName) values('" + curUserName + "','" + userAction + "','" + item.Key + "','" + item.Value + "','" + DateTime.Now.ToString() + "',(select MaterialName from tb_takeInsert where RfidText='"+item.Key+"'))";
+                        cmd1.ExecuteNonQuery();
+                    }                             
                 }
             }
 
@@ -277,8 +314,18 @@ namespace UserLogin
                     cmd.ExecuteNonQuery();
                 }
             }
-            dict.Clear();
 
+            using (SqlConnection conn = new SqlConnection(conStr))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "delete from tb_takeInsert";
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            dict.Clear();
+            dict1.Clear();
         }
 
     
@@ -298,24 +345,6 @@ namespace UserLogin
         {
             UpDateDataGrid();
         }
-
-        private void textCounts_TextChanged(object sender, EventArgs e)
-        {
-            //timerScanRFID.Enabled = true;
-        }
-
-        /// <summary>
-        /// 选择要取出的物品
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void btn_Add_Click(object sender, EventArgs e)
-        //{           
-
-        //    dict=AddTakeMaterial(textCounts.Text);
-        //    list= GetMaterialName(dict);
-        //    timerScanRFID.Enabled = true;
-        //}
 
         /// <summary>
         /// 将要取出的物品标签号和数量添加到字典中
@@ -348,33 +377,74 @@ namespace UserLogin
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public List<string> GetMaterialName(Dictionary<string,string>dic)
-        {         
-                List<string> strList = new List<string>();
-                SqlConnection conn = new SqlConnection(conStr);
-                conn.Open();
-                foreach (var item in dic.Keys)
-                {                  
-                    SqlDataAdapter sda = new SqlDataAdapter();
-                    SqlCommand command = new SqlCommand("select materialName from tb_material where materialRfid='" +item+"'", conn);
-                    sda.SelectCommand = command;
-                    DataSet ds = new DataSet();
-                    sda.Fill(ds);
-                    string str = ds.Tables[0].Rows[0]["materialName"].ToString();
-                    strList.Add(str);
-                }
-                return strList;
+        public Dictionary<string,string> GetMaterialName(string str)
+        {
+            dict1.Add(str, textTakeName.Text);
+            return dict1;
         }
 
 
 
 
-
+        /// <summary>
+        /// 扫描标签
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             Inquiry();
         }
 
+        private void textRfidNum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(conStr);
+            conn.Open();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            SqlCommand sqlcmd = new SqlCommand("select materialName from tb_material where materialRfid='" + textRfidNum.Text + "'", conn);
+            sda.SelectCommand = sqlcmd;
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            textTakeName.Text = ds.Tables[0].Rows[0]["materialName"].ToString();
+            ds.Dispose();
+            conn.Close();
+            conn.Dispose();
+        }
+
+        public void InsertDataToTable()
+        {
+            using(SqlConnection conn=new SqlConnection(conStr))
+            {
+                conn.Open();
+                using(SqlCommand cmd = conn.CreateCommand())
+                {
+                    foreach (var item in dict1)
+                    {
+                        cmd.CommandText = "insert into tb_takeInsert(RfidText,MaterialName) values('" + item.Key+ "','" + item.Value + "')";
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            dict = AddTakeMaterial(textCounts.Text);
+            GetMaterialName(textRfidNum.Text);
+        }
+
+        //private void TakeMatelrials_Load(object sender, EventArgs e)
+        //{
+        //    string userNameByRfid = GetUserInfoByRfid();
+        //    SqlConnection conn = new SqlConnection(conStr);
+        //    conn.Open();
+        //    SqlDataAdapter sda = new SqlDataAdapter();
+        //    SqlCommand sql = new SqlCommand("select UserName from tb_UserInfoByRfid where RfidInfo='" + userNameByRfid + "'", conn);
+        //    sda.SelectCommand = sql;
+        //    DataSet dataSet = new DataSet();
+        //    sda.Fill(dataSet);
+        //    curUserNameByRfid = dataSet.Tables[0].Rows[0]["UserName"].ToString();
+        //}
     }
 
     public static class DictionaryExtensions
